@@ -10,4 +10,4 @@ EXPOSE 5000
 
 ENV PYTHONHTTPSVERIFY=0
 
-CMD ["python", "run.py"]
+CMD ["python", "main.py"]

@@ -6,7 +6,7 @@ services:
     volumes:
       - .:/app
     ports:
-      - 5000:5000
+      - 5005:5005
     depends_on:
       - db
     networks:
@@ -18,7 +18,7 @@ services:
       - POSTGRES_PASSWORD=prueba
       - POSTGRES_DB=prueba
     ports:
-      - 5434:5434
+      - 5435:5435
     networks:
       - network_prueba
 
