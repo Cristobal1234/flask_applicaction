@@ -1,0 +1,26 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+    volumes:
+      - .:/app
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
+    networks:
+      - network_prueba
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=prueba
+      - POSTGRES_PASSWORD=prueba
+      - POSTGRES_DB=prueba
+    ports:
+      - 5434:5434
+    networks:
+      - network_prueba
+
+networks:
+  network_prueba:
