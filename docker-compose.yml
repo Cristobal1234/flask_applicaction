@@ -1,24 +1,29 @@
-version: '3'
+version: '3.8'
+
 services:
-  web:
-    build:
-      context: .
-    volumes:
-      - .:/app
+  app:
+    restart: always
+    build: .
     ports:
-      - 5005:5005
+      - 5000:5000
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=prueba
+      - DB_USER=prueba
+      - DB_PASSWORD=prueba
     depends_on:
-      - db
+      - postgres
     networks:
       - network_prueba
-  db:
-    image: postgres
+  postgres:
+    image: postgres:13
+    ports:
+      - 5434:5432
     environment:
+      - POSTGRES_DB=prueba
       - POSTGRES_USER=prueba
       - POSTGRES_PASSWORD=prueba
-      - POSTGRES_DB=prueba
-    ports:
-      - 5435:5435
     networks:
       - network_prueba
 
